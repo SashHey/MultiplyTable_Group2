@@ -24,6 +24,9 @@ class MainActivity : AppCompatActivity() {
             /*Created an intent to switch between pages (switching from main page to table
             display page*/
             val intent = Intent(this, TableDisplay::class.java)
+
+            //transferring data for the number input from main page to the table display page
+            intent.putExtra("tableNumber", numInput.text.toString())
             startActivity(intent)
         }
 
