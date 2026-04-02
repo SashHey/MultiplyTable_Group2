@@ -20,10 +20,26 @@ class TableDisplay : AppCompatActivity() {
         //converting the string back into a number ready for multiplication
         val tableNumber = tableString!!.toInt()
         val multiplyTable = findViewById<TextView>(R.id.tableDisplayTxt)
-        val timesDisplay: String = "$tableNumber x tables\n\n"
+        var timesDisplay: String = "$tableNumber x tables\n\n"
+
+        //Creating counter for while loop
+        var count = 1
 
         //displaying the number the user entered on the second page next to the text "x tables"
         multiplyTable.text = timesDisplay
+
+        while (count <= 10){
+            //example: user enters 5 and count is 1 SO: 5 x 1 = 5 (answer)
+            val answer = tableNumber * count
+                /*displays as:
+                5 x tables
+
+                5 x 1 = 5
+                */
+            timesDisplay += "$tableNumber x $count = ${answer}\n"
+            //increasing the count
+            count++
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
